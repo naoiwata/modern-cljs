@@ -1,46 +1,74 @@
-# Tutorial 1 - The Basics
+<!-- # Tutorial 1 - The Basics -->
 
-In this first tutorial we are going to create and configure a minimum
-ClojureScript ([CLJS][1]) project by using the [boot][2] build tool.
+# Tutorial 1 - 基本的なこと
 
-## Requirements
+<!-- In this first tutorial we are going to create and configure a minimum ClojureScript (CLJS) project by using the boot build tool. -->
 
-This tutorial requires `java` and `boot` to be installed on your
-computer.
+まずは [boot][2] というビルドツールを使って、最小限の ClojureScript ([CLJS][1]) のプロジェクトを作ってみよう。
 
-To install `java` follow the [instructions][3] for your operating
-system. To install `boot` follow the very easy instructions in the
-corresponding section of its [README][4].
+<!-- ## Requirements -->
 
-Test the installation by issuing the `boot -h` command at the
-terminal. Then submit the `boot -u` command to get the latest `boot`
-updates.
+## 必要な環境
 
-> NOTE 1: I strongly suggest to use Java 8. If you're using Java 7, it
-> might be worth mentioning
+<!-- This tutorial requires java and boot to be installed on your computer. -->
+
+このチュートリアルでは `java` と `boot` が必要だ。
+
+<!-- To install java follow the instructions for your operating system. To install boot follow the very easy instructions in the corresponding section of its README. -->
+
+OS に `java` をインストールするには [instructions][3] を参考にして欲しい。
+`boot` のついてはこちらの [README][4] にとても簡単な使い方を参考にして欲しい。
+
+<!-- Test the installation by issuing the boot -h command at the terminal. Then submit the boot -u command to get the latest boot updates. -->
+
+ターミナルで `boot -h` コマンドを試してみよう。
+また、最新の `boot` を使うには `boot -u` を実行すればいい。
+
+<!-- NOTE 1: I strongly suggest to use Java 8. If you're using Java 7, it might be worth mentioning https://github.com/boot-clj/boot/wiki/JVM-Options#permgen-errors -->
+
+> NOTE 1: Java 8 を使うことを強く勧める。もし Java 7 を使っているなら、以下のページを参考にしたほうがよい。
 > https://github.com/boot-clj/boot/wiki/JVM-Options#permgen-errors
 
-## Create the project structure
+<!-- ## Create the project structure -->
 
-A minimum CLJS web project is composed of 3 files:
+## プロジェクトを作ろう
 
-* an html page;
+<!-- A minimum CLJS web project is composed of 3 files: -->
+
+最小限の CLJS プロジェクトは 3 ファイルから構成されている。
+
+<!-- * an html page;
 * a CLJS source code;
-* a `boot` build file to compile CLJS source code.
+* a boot build file to compile CLJS source code. -->
 
-Even if CLJS does not dictate specific directory structure, it's a
+* HTML ページ
+* CLJS のソースコード
+* CLJS のソースコードをコンパイルするための `boot` のビルドファイル
+
+<!-- Even if CLJS does not dictate specific directory structure, it's a
 good practice to organize your project in such a way that it will be
 easy for anyone, even yourself in a few months, to be able to
 understand the project components and its structure. Moreover, each
 building tool has its own idiosyncrasies, which they call
 defaults. The more you adhere to the defaults of the tool at
-hand, the less pain you will experience while managing the project.
+hand, the less pain you will experience while managing the project.-->
 
-While taking these premises into account, let's create a directory
+もし CLJS があるディレクトリ構造に影響していないとしても、
+数ヶ月のうちにはプロジェクトの構造と構成を理解することは簡単にできるので
+プロジェクトの構造を実際に作ってみるのはよい練習になるだろう。
+更に、どのビルドツールもそれぞれ初期設定というクセを持っている。
+このツールの初期設定を手近にモノにすればするほど、プロジェクトを管理するのに払う経験が少なくてすむ。
+
+<!-- While taking these premises into account, let's create a directory
 structure for our new project, named `modern-cljs`, by adhering as
-much as possible to the `boot` defaults.
+much as possible to the `boot` defaults. -->
 
-The suggested files layout of the project is the following:
+アカウントが既にあるという前提で、`boot` の設定に沿って
+`modern-cljs` という新しいプロジェクトのディレクトリを作ってみよう。
+
+<!-- The suggested files layout of the project is the following: -->
+
+プロジェクトのファイルのレイアウトは以下のようにするといい。
 
 ```bash
 modern-cljs/
@@ -53,39 +81,59 @@ modern-cljs/
             └── core.cljs
 ```
 
-* `modern-cljs` is the home directory of the project;
+<!-- * `modern-cljs` is the home directory of the project;
 * `src/cljs/` hosts CLJS source files;
-* `html` hosts html resources;
+* `html` hosts html resources; -->
 
-> NOTE 2: Single segment namespace are
+* `modern-cljs` はこのプロジェクトのホームディレクトリ。
+* `src/cljs/` は CLJS ソースファイルのホストディレクトリ。
+* `html` は HTML ファイルのホストディレクトリ。
+
+<!-- > NOTE 2: Single segment namespace are
 > [discouraged in CLJ/CLJS][5]. That's why we created the
 > `modern_cljs` directory name. Due to [Java difficulties][6] in
 > managing hyphen "-" (or other special characters) in package names,
 > we substituted an underscore (`_`) for any hyphen (`-`) in
-> corresponding directory names.
+> corresponding directory names. -->
 
-> NOTE 3: Please note that the filename extension for ClojureScript
-> source is **cljs**, not **clj**.
+> NOTE 2: シングルセグメントの namespace は [CLJ/CLJS ではお勧めしない][5].
+> そういうワケで `modern_cljs` というディレクトリ名にした。
+> [Java の問題][6] のせいで、パッケージ名にハイフン "-" (や他の特殊な文字列) をつけると、
+> ディレクトリ名のどのハイフン(`-`) も、アンダースコア (`_`) に置換されてしまう。
 
-Issue the following command at the terminal:
+<!-- > NOTE 3: Please note that the filename extension for ClojureScript
+> source is **cljs**, not **clj**. -->
+
+> NOTE 3: ClojureScript のファイル拡張子は **clj** でなく **cljs** であることに注意。
+
+<!-- Issue the following command at the terminal: -->
+
+では、下のコマンドをターミナルで実行してみよう。
 
 ```bash
 mkdir -p modern-cljs/{src/cljs/modern_cljs,html}
 ```
 
-Let's now create the three needed files by issuing the folowing
-command:
+<!-- Let's now create the three needed files by issuing the folowing
+command: -->
+
+それから、必要なファイルを作ろう。
 
 ```bash
 cd modern-cljs
 touch html/index.html src/cljs/modern_cljs/core.cljs build.boot
 ```
 
-## Hello World in CLJS
+<!-- ## Hello World in CLJS -->
 
-We're now going to write our very first CLJS code. Open the
+## CLJS で Hello World しよう
+
+<!-- We're now going to write our very first CLJS code. Open the
 `src/cljs/modern_cljs/core.cljs` file with your preferred editor and
-type into it the following CLJS code:
+type into it the following CLJS code: -->
+
+それでは最初の CLJS コードを書いてみよう。
+君の好きなエディタで `src/cljs/modern_cljs/core.cljs` ファイルを開いて、次のコードを書いてみよう。
 
 ```clj
 ;; create the main project namespace
@@ -98,21 +146,33 @@ type into it the following CLJS code:
 (println "Hello, World!")
 ```
 
-Every CLJ/CLJS file must start with a namespace declaration matching a
-path on your disk:
+<!-- Every CLJ/CLJS file must start with a namespace declaration matching a
+path on your disk: -->
+
+CLJ/CLJS ファイルを書くときは、まず始めにディスクのパスに合った namespace を
+宣言することになっている。
 
 `modern-cljs.core` <--> `modern_cljs/core.cljs`
 
-The `(enable-console-print!)` expression redirects any printing output
+<!-- The `(enable-console-print!)` expression redirects any printing output
 to the console of the browser in such a way that the `(println "Hello,
-world!")` prints `Hello, World!` to the console.
+world!")` prints `Hello, World!` to the console. -->
 
-### Minimal build.boot
+`(enable-console-print!)` 式は、コンソールに `Hello, World!` を出力するために
+`(println "Hello, world!")` を書くように、ブラウザのコンソールに出力できるようにする。
 
-We now need a way to compile down `core.cljs` to JS and link it to the
-`index.html` page.
+<!-- ### Minimal build.boot -->
 
-First, open the file `html/index.html` and edit it as follow:
+### 最小限の build.boot
+
+<!-- We now need a way to compile down `core.cljs` to JS and link it to the
+`index.html` page. -->
+
+それでは `core.cljs` を JS にコンパイルして `index.html` ページにリンクさせてみよう。
+
+<!-- First, open the file `html/index.html` and edit it as follow: -->
+
+まずはじめに、 `html/index.html` を開いて以下のように書いてみよう。
 
 ```html
 <!doctype html>
@@ -125,15 +185,21 @@ First, open the file `html/index.html` and edit it as follow:
   </body>
 </html>
 ```
-
-Note that there are no references to CLJS files. We only added a
+<!-- Note that there are no references to CLJS files. We only added a
 `<script>` tag to link the `index.html` page to the `main.js`
 file. This JS file will be generated by the `boot` building tool while
-compiling the above `core.cljs` source code.
+compiling the above `core.cljs` source code. -->
 
-To compile the `core.cljs` file, we need to configure the `boot` command by
+これはまだ CLJS を参照していない。
+`index.html` ページに `<script>` タグで `main.js` ファイルを指定しただけだ。
+この JS ファイルは、`core.cljs` のソースコードがコンパイルされると同時に `boot` ツールで生成される。
+
+<!-- To compile the `core.cljs` file, we need to configure the `boot` command by
 editing the `build.boot` file, which is just a regular CLJ file with a
-different extension:
+different extension: -->
+
+`core.cljs` ファイルをコンパイルするには、CLJ ファイルとは違った拡張子のこの
+ `build.boot` ファイルを編集することで `boot` の設定をすればよい。
 
 ```clj
 (set-env!
