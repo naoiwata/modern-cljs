@@ -1,61 +1,35 @@
-## Latest tutorials
+# Modern ClojureScript 日本語訳
 
-### [Tutorial 20 - House Keeping][40]
+> **注意**: 現在、[第 2 版][1] の製作途中です。
+> [第 1 版][2] との主な違いはビルドツールに [Leiningen][4] の代わりに
+> [Boot][3] を使っていることです。
+> この第 2 版 はまだ草稿段階であり、エラーやタイポ、バグが見つかる可能性があります。
 
-Step to step guide for publishing a library to clojars repository by
-using `boot`.
+> **WINDOWS ユーザへの注意**: 今のところ `boot` は MS Windows 10 以下では動きません。
+> もしこれに当てはまる場合は、[virtual machine](https://www.virtualbox.org/) や
+> [docker linux container](https://docs.docker.com/windows/) を使って
+> `modern-cljs` を試すことができます。
 
-### [Tutorial 19 - Livin' on the edge][39]
+Modern ClojureScript (`modern-cljs`) は [ClojureScript][5] (CLJS) のプロジェクトを
+作成し動かすガイドのチュートリアルです。
 
-Explain how to make a library compliant with the new Reader
-Conditionals extension of CLJ/CLJS compilers.
+CLJS は JavaScript の為の Clojure プログラミング言語のコンパイラです。
+JavaScript コードにコンパイルし、Web ブラウザや他のクライアントサイド、
+JavaScript インタプリタが使えるサーバサイド(e.g. [nodejs][6])で使用できます。
 
-### [Tutorial 18 - Augmented TDD session][38]
+## 必要な環境
 
-Complete the client-side form validation by exploiting the TDD
-environment augmented with CLJ/CLJS REPLs.
+このチュートリアルを進めるには多少のプログラミング経験が必要です。
+まだ Clojure に熟達していないとしても、チュートリアルを手を動かしてみてこそできるようになっています。
+また、もし HTML や JavaScript、ブラウザの DOM を使った経験があるなら、かなりの助けになるはずです。
 
-# Modern ClojureScript
+もし Clojure (または Lisp) について何も知らない場合、このチュートリアルを始める前に
+少々学んでおくことを勧めます。
 
-> **ATTENTION NOTE**: I'm in the process of publishing the
-> [second edition][1] of the series. The main difference from the
-> [first edition][2] regards the use of the [Boot][3] build tool instead
-> of [Leiningen][4]. This second edition is still a draft version and
-> you should be forgiving if you'll find errors, typos or even bugs in
-> the code.
+インターネット上には自由に利用できる Clojure を理解するのに十分な情報があるので、
+プログラマとして Clojure (または他の Lisp 方言) の本を読まなければならないと考えすぎることはありません。
 
-
-> **WARNING NOTE FOR WINDOWS USERS**: At the moment `boot` does not run
-> on MS Windows less than 10. If this is your case, to be able to
-> follow the `modern-cljs` series you can use use a
-> [virtual machine](https://www.virtualbox.org/) or
-> [docker linux container](https://docs.docker.com/windows/).
-
-Modern ClojureScript (`modern-cljs`) is a series of tutorials that
-guide you in creating and running [ClojureScript][5] (CLJS) projects.
-
-CLJS is a compiler for the Clojure programming language that targets
-JavaScript. It emits JavaScript code which runs in web browsers and
-other client-side or server-side JavaScript interpreters
-(e.g. [nodejs][6]).
-
-## Required background
-
-These tutorials require that you have some prior programming
-experience.  They assume you've gotten your hands dirty by trying a
-little Clojure, even if you're not proficient in it yet. It will also
-be quite helpful if you have some experience programming for the Web
-using HTML, JavaScript and the browser DOM.
-
-If you don't know anything about Clojure (or about Lisp), I recommend
-you learn a little bit before starting these tutorials.
-
-There are plenty of outstanding resources on Clojure that are freely
-available on the Internet, and you can't overestimate the benefit of
-reading a book on Clojure (or another Lisp dialect) to your value as a
-programmer.
-
-Here are some book recommendations:
+こちらにお勧めの本を紹介しておきます。
 
 * [Clojure Programming][7]: written by three of the heroes of Clojure,
   it contains everything you need to know about Clojure and its
@@ -75,95 +49,83 @@ Here are some book recommendations:
 * [On Lisp][15]: if you want to learn about macros, this is the place
   to start.  It uses Common Lisp (a Lisp dialect) rather than Clojure.
 
-## Required tools
+## 必要なツール
 
-Many people worry about which operating system and editor/IDE are best
-for developing in Clojure and ClojureScript. I personally use Mac OS
-X, Debian and Ubuntu. I use Emacs as an editor.
+Clojure や ClojureScript の開発に最適な OS やエディタ/IDE について悩む人が多いです。
+個人的には Mac OC や Debian、Ubuntu を使っています。私はエディタは Emacs を使っています。
 
-Because I'm an old-timer, *nix and Emacs are the OS and editor I know best. 
-That being said, in this series of tutorials you're not going to find any
-suggestions or reference to operating systems or editors. Use whatever tools
-you already have and know. I have too much respect for people developing
-IDE/plugins for Clojure/CLJS to say that one is better than another, and
-you don't want to combine learning a new programming language with trying
-to learn a new programming environment.
+*nix や Emacs は私が知るかぎりは最高の OS とエディタです。
+そう言えるのは、このチュートリアルでは、他の OS やエディタを提案することがないからです。
+どのツールを使おうともすでに知っているものです。
+Cojure/CLJS の IDE/プラグインを開発している人にはとても尊敬しますし、
+新しいプログラミング環境を試しながら新しいプログラミング言語を学びたくはないでしょう。
 
-You will need to have [git][16] and [Java][34] installed and you'll
-need some familiarity with the [basics of git][17].
+[git][16] と [Java][34] さえインストールして、[git の基本][17] をおさえておいてください。
 
-## Why the name Modern ClojureScript?
+## なぜ Modern ClojureScript か?
 
-You might wonder why this tutorial series is named `modern-cljs` when
-ClojureScript is so recent. I started this series in 2012 while trying
-to port a few examples from the
-[Modern JavaScript: Develop and Design][18] book to ClojureScript, and
-now it's too late to change.
+ClojureScript は最近できたものなのに、なぜ `modern-cljs` と呼ぶのか。
+このチュートリアルは 2012 年に、[Modern JavaScript: Develop and Design][18] の本を例に ClojureScript
+へ持ってきました。そして今では変更するには遅すぎたのです。
 
-# The Tutorials
+# チュートリアル
 
-As said, this is the [second edition][1] of the series and is based on
-the [Boot][3] build tool. I'm not going to update or support the
-[first edition][2] of the series which was based on the [Leiningen][4]
-build tool.
+先にも言ったように、[第 2 版][1] は [Boot][3] のビルドツールを使用しています。
+[Leiningen][4] のビルドツールを使用した [第 1 版][2] を今後アップデートするつもりはありません。
 
-## Introduction
+## はじめに
 
-This series of tutorials guides you in creating and running simple CLJS
-projects. The bulk of the series follows the progressive enhancement of
-a single project.
+チュートリアルでは、まずシンプルな CLJS のプロジェクトを作成し、動かすところから始めます。
+チュートリアルの大部分は一つのプロジェクトに機能を追加してより充実させながら進んでいきます。
 
-While working through the tutorials I *strongly* suggest you start at
-tutorial 1 and type in all the code for each tutorial yourself.
-In my experience this is the the best approach if you're not already
-very fluent with the programming language.
+チュートリアルを進める中で私が *強調して* 勧めることは、
+チュートリアル 1 から始めて、全てのチュートリアルのコードを自身でタイプしてみることです。
+私の経験では、これがまだ熟達してないプログラミング言語を学ぶ上で最も良いアプローチです。
 
-## [Tutorial 1 - The Basics][19]
+## [Tutorial 1 - 基本的なこと][19]
 
 Create and configure a very basic CLJS project.
 
-## [Tutorial 2 - Immediate Feedback Principle][20]
+## [Tutorial 2 - すぐ評価しよう][20]
 
-Approach as close as possible the Bret Victor Immediate Feedback
-Principle to build a very interactive development environment.
+Approach as close as possible the Bret Victor Immediate Feedback Principle to build a very interactive development environment.
 
-## [Tutorial 3 - House Keeping][21]
+## [Tutorial 3 - ハウスキーピング][21]
 
-Automate the launching of the `boot` command to approach the Immediate
-Feedback Development Environment (IFDE). 
+Automate the launching of the boot command to approach the Immediate Feedback Development Environment (IFDE).
 
-## [Tutorial 4 - Modern ClojureScript][22]
+## [Tutorial 4 - モダンな ClojureScript][22]
 
 Have some fun with CLJS form validation by porting the JavaScript login form
 example from [Modern JavaScript: Develop and Design][18] to CLJS.
 
-## [Tutorial 5 - Introducing Domina][23]
+## [Tutorial 5 - Domina を導入する][23]
 
 Use the [Domina library][24] to make our login form validation more Clojure-ish.
 
-## [Tutorial 6 - The Easy Made Complex, and the Simple Made Easy][25]
+## [Tutorial 6 - 安易なことは複雑になり、シンプルさは簡単になる][25]
 
 Investigate and find two different ways to solve an issue from the last
 tutorial.
 
-## [Tutorial 7 - Introducing Domina Events][26]
+## [Tutorial 7 - Domina のイベントハンドラを導入する][26]
 
 Use Domina events for a more Clojure-ish approach to handing DOM events.
 
-## [Tutorial 8 - DOM Manipulation][27]
+## [Tutorial 8 - DOM のマニピュレーション][27]
 
 Programmatically manipulate DOM elements in response to DOM events.
 
-## [Tutorial 9 - Introducing AJAX][28]
+## [Tutorial 9 - AJAX を導入する][28]
 
 Use AJAX to let the CLJS client-side code communicate with the server.
 
-## [Tutorial 10 - A Deeper Understanding of Domina Events][29]
+## [Tutorial 10 - Domina のイベントハンドラを深く理解する][29]
 
 Apply Domina events to the login form example from the
 [4th Tutorial][22].
 
-## [Tutorial 11 - HTML on Top, Clojure on the Bottom][30]
+## [Tutorial 11 - 上層の HTML と下層の Clojure][30]
 
 Explore the highest (HTML5) and deepest (Clojure on the server) layers
 of the login form example from the [previous tutorial][29].
@@ -173,44 +135,44 @@ of the login form example from the [previous tutorial][29].
 Respect the Don't Repeat Yourself (DRY) principle by sharing
 validators between the client-side CLJS and the server-side Clojure.
 
-## [Tutorial 13 - Better Safe Than Sorry (Part 1)][32]
+## [Tutorial 13 - 備えあれば憂いなし (パート 1)][32]
 
 Set the stage for unit testing by learning about the `Enlive` template
 sytem and starting the shopping calculator example. Use code
 refactoring to satisfy the DRY principle and to solve a cyclic
 namespaces dependency problem.
 
-## [Tutorial 14 - Better Safe Than Sorry (Part 2)][33]
+## [Tutorial 14 - 備えあれば憂いなし (パート 2)][33]
 
 Add validators to the `shoppingForm`, and do some unit testing.
 
-## [Tutorial 15 - Better Safe Than Sorry (Part 3)][35]
+## [Tutorial 15 - 備えあれば憂いなし (パート 3)][35]
 
 Configure a development environment that simultaneously satisfy in a
 single JVM the Immediate Feedback Principle by Bret Victor and the
 Test Driven Development (TDD).
 
-## [Tutorial 16 - On pleasing TDD practitioners][36]
+## [Tutorial 16 - 楽しい TDD 実践][36]
 
 Make the Test Driven Development Environment more customizable.
 
-## [Tutorial 17 - REPLing with Enlive][37]
+## [Tutorial 17 - Enlive で REPL する][37]
 
 Integrate validators for the into a web form in such a way that the
 user will be notified with the corresponding help messages when the
 she/he enters invalid values in the form.
 
-## [Tutorial 18 - Augmented TDD session][38]
+## [Tutorial 18 - TDD をさらに増強する][38]
 
 Complete the client-side form validation by exploiting the TDD
 environment augmented with CLJ/CLJS REPLs.
 
-## [Tutorial 19 - Livin' on the edge][39]
+## [Tutorial 19 - 崖っぷちで生きているのさ][39]
 
 Explain how to make a library compliant with the new Reader
 Conditionals extension on CLJ/CLJS compilers.
 
-## [Tutorial 20 - House Keeping][40]
+## [Tutorial 20 - ハウスキーピング][40]
 
 Step to step guide for publishing a library to clojar repository by
 using `boot`.
@@ -258,6 +220,6 @@ License, the same license as Clojure.
 [35]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-15.md
 [36]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-16.md
 [37]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-17.md
-[38]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-18.md 
+[38]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-18.md
 [39]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-19.md
-[40]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-20.md 
+[40]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-20.md
