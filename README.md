@@ -84,7 +84,7 @@ ClojureScript は最近できたものなのに、なぜ `modern-cljs` と呼ぶ
 
 ## [Tutorial 1 - 基本的なこと][19]
 
-Create and configure a very basic CLJS project.
+基本的な CLJS のプロジェクトを作成して設定してみよう。
 
 ## [Tutorial 2 - すぐ評価しよう][20]
 
@@ -201,25 +201,25 @@ License, the same license as Clojure.
 [16]: http://git-scm.com/
 [17]: http://git-scm.com/documentation
 [18]: http://www.larryullman.com/books/modern-javascript-develop-and-design/
-[19]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-01.md
-[20]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-02.md
-[21]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-03.md
-[22]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-04.md
-[23]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-05.md
+[19]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-01.md
+[20]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-02.md
+[21]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-03.md
+[22]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-04.md
+[23]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-05.md
 [24]: https://github.com/levand/domina
-[25]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-06.md
-[26]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-07.md
-[27]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-08.md
-[28]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-09.md
-[29]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-10.md
-[30]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-11.md
-[31]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-12.md
-[32]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-13.md
-[33]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-14.md
+[25]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-06.md
+[26]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-07.md
+[27]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-08.md
+[28]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-09.md
+[29]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-10.md
+[30]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-11.md
+[31]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-12.md
+[32]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-13.md
+[33]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-14.md
 [34]: https://github.com/clojure/clojurescript.git
-[35]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-15.md
-[36]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-16.md
-[37]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-17.md
-[38]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-18.md
-[39]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-19.md
-[40]: https://github.com/magomimmo/modern-cljs/blob/master/doc/second-edition/tutorial-20.md
+[35]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-15.md
+[36]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-16.md
+[37]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-17.md
+[38]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-18.md
+[39]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-19.md
+[40]: https://github.com/naoiwata/modern-cljs/blob/master/doc/second-edition/tutorial-20.md
