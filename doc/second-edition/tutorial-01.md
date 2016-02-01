@@ -17,7 +17,7 @@
 <!-- To install java follow the instructions for your operating system. To install boot follow the very easy instructions in the corresponding section of its README. -->
 
 OS に `java` をインストールするには [instructions][3] を参考にして欲しい。
-`boot` のついてはこちらの [README][4] にとても簡単な使い方を参考にして欲しい。
+`boot` のついてはこちらの [README][4] にとても簡単な使い方が書いてあるので参考にして欲しい。
 
 <!-- Test the installation by issuing the boot -h command at the terminal. Then submit the boot -u command to get the latest boot updates. -->
 
