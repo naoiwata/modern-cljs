@@ -96,7 +96,7 @@ modern-cljs/
 > we substituted an underscore (`_`) for any hyphen (`-`) in
 > corresponding directory names. -->
 
-> NOTE 2: シングルセグメントの namespace は [CLJ/CLJS ではお勧めしない][5].
+> NOTE 2: シングルセグメントの namespace は [CLJ/CLJS ではお勧めしない][5]。
 > それで `modern_cljs` というディレクトリ名にした。
 > [Java の問題][6] のせいで、パッケージ名にハイフン "-" (や他の特殊な文字列) をつけると、
 > ディレクトリ名のどのハイフン(`-`) も、アンダースコア (`_`) に置換されてしまう。
