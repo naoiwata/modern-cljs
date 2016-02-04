@@ -97,7 +97,7 @@ modern-cljs/
 > corresponding directory names. -->
 
 > NOTE 2: シングルセグメントの namespace は [CLJ/CLJS ではお勧めしない][5].
-> そういうワケで `modern_cljs` というディレクトリ名にした。
+> それで `modern_cljs` というディレクトリ名にした。
 > [Java の問題][6] のせいで、パッケージ名にハイフン "-" (や他の特殊な文字列) をつけると、
 > ディレクトリ名のどのハイフン(`-`) も、アンダースコア (`_`) に置換されてしまう。
 
@@ -149,7 +149,7 @@ type into it the following CLJS code: -->
 <!-- Every CLJ/CLJS file must start with a namespace declaration matching a
 path on your disk: -->
 
-CLJ/CLJS ファイルを書くときは、まず始めにディスクのパスに合った namespace を
+CLJ/CLJS ファイルを書くときは、まず始めにディスク上のパスに合った namespace を
 宣言することになっている。
 
 `modern-cljs.core` <--> `modern_cljs/core.cljs`
@@ -290,7 +290,7 @@ Set BOOT_EMIT_TARGET=no to disable implicit target dir.
 to have more information about the `cljs` task by issuing the
 following command:-->
 
-今のところは、これ以上は説明しないのが、次のコマンドにあるように
+今のところは、これ以上は説明しないのだが、次のコマンドにあるように
 `cljs` タスクについてはこの程度しか情報がない。
 
 ```bash
@@ -307,7 +307,7 @@ optimizations (i.e. `none`, `whitespace`, `simple` and `advanced`). At
 the moment stay with `none`, which is commonly used during development
 cycles. Let's see `boot cljs` at work:-->
 
-このように、CLJS コンパイラのデフォルト説明は `none`。
+このように、CLJS コンパイラのデフォルト説明は `none` となっている。
 次のチュートリアルでは、他の CLJS コンパイルを最適化する方法を説明する。
 (例えば、 `none`、`whitespace`、`simple`、そして `advanced` だ。)
 現状の開発サイクルの間は `none` で進める。それでは `boot cljs` ではじめよう。
@@ -393,7 +393,7 @@ moment we're only interested in noting a few things:-->
   
 * `html` と `src` にあるソースは何も変わっていない。
 * `index.html` を含め全てのソースは `target` ディレクトリに作られる。
-* このディレクトリは、`boot` コマンドで警告が出ても変わらずコンパイル対象となる。
+  このディレクトリは、`boot` コマンドで警告が出ても変わらずコンパイル対象となる。
 
 <!--## Get rid of warnings-->
 
@@ -513,12 +513,12 @@ console.-->
 出力される。
 
 ブラウザを開いて `target/index.html` ファイルを開いてみよう。
-そしてコンソールのディベロッパーコンソールを開いてみよう。(Chrome の開発ツールなど)
+そしてコンソールのディベロッパーコンソールを開いてみよう(Chrome の開発ツールなど)。
 問題なく動いていたら、コンソールに  "Hello, World!" の文字が見えるだろう。
 
 <!--## Next Step - [Tutorial 2: Immediate Feedback Principle][7]-->
 
-## 次回 - [Tutorial 2: すぐ評価しよう[7]]
+## 次回 - [Tutorial 2: すぐ評価しよう][7]
 
 <!--In the next [tutorial][7] we're going to adhere as closely as possible to
 the [Bret Victor Immediate Feedback Principle][8] to build a very
