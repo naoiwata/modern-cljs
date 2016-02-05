@@ -6,7 +6,7 @@ the Immediate Feedback principle, as described by Bret Victor in his
 
 # Tutorial 2 - すぐ評価しよう
 
-このチュートリアルでは、Bret Victor の速攻評価システムのようなアプローチで[seminal talk][1]
+このチュートリアルでは、Bret Victor の速攻評価システムのようなアプローチで [seminal talk][1]
 ClojureScript の設定をする。
 
 <!--## Preamble
@@ -31,7 +31,7 @@ of the first tutorial.
 
 > NOTE 1: `se-` のプレフィックスは「第 2 版」の意味だ。
 
-## Introduction
+<!--## Introduction
 
 The `boot` building tool is more recent and less mature than the
 corresponding `leiningen` building tool, which is a kind of standard
@@ -50,7 +50,7 @@ start approaching Bret Victor's principle of Immediate Feedback:
 * [`boot-cljs-repl`][7]: a `boot` task providing a REPL for CLJS
   development;
 
-    > NOTE 2: we already used `boot-cljs` task in the previous tutorial.
+    > NOTE 2: we already used `boot-cljs` task in the previous tutorial.-->
 
 ## はじめよう
 
@@ -62,6 +62,8 @@ CLJ 開発者から見て `boot` は `leiningen` よりはまだ新しく開発�
 * [`boot-http`][5]: HTTP をベースにしたシンプルな HTTP を提供する `boot` タスク。
 * [`boot-reload`][6]: CSS や画像などの静的ファイルをライブリロードする `boot` タスク。
 * [`boot-cljs-repl`][7]: CLJS の REPL を提供する `boot` タスク。
+
+    > NOTE 2: 前回のチュートリアルで `boot-cljs` タスクをすでに使っている。
 
 ## CLJ-based HTTP server
 
