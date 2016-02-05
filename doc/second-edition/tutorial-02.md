@@ -1,13 +1,20 @@
-# Tutorial 2 - Immediate Feedback Principle
+<!--# Tutorial 2 - Immediate Feedback Principle
 
 This tutorial is aimed at configuring a ClojureScript project to approach
 the Immediate Feedback principle, as described by Bret Victor in his
-[seminal talk][1].
+[seminal talk][1].-->
 
-## Preamble
+# Tutorial 2 - すぐ評価しよう
+
+このチュートリアルでは、Bret Victor の速攻評価システムのようなアプローチで[seminal talk][1]
+ClojureScript の設定をする。
+
+<!--## Preamble
 
 If you want to start working from the end of the [previous tutorial][2],
-assuming you have [git][3] installed, do as follows:
+assuming you have [git][3] installed, do as follows:-->
+
+[前回のチュートリアル][2]の終わりから始めたい人は、[git][3] をインストール済なら次のコマンドを実行しよう。
 
 ```bash
 git clone https://github.com/magomimmo/modern-cljs.git
@@ -15,10 +22,14 @@ cd modern-cljs
 git checkout se-tutorial-01
 ```
 
-This clones the tutorial repo and starts you at the end
+<!--This clones the tutorial repo and starts you at the end
 of the first tutorial.
 
-> NOTE 1: the `se-` prefix means "second edition".
+> NOTE 1: the `se-` prefix means "second edition".-->
+
+これで前回のチュートリアルの最後の状態から始められる。
+
+> NOTE 1: `se-` のプレフィックスは「第 2 版」の意味だ。
 
 ## Introduction
 
@@ -40,6 +51,17 @@ start approaching Bret Victor's principle of Immediate Feedback:
   development;
 
     > NOTE 2: we already used `boot-cljs` task in the previous tutorial.
+
+## はじめよう
+
+CLJ 開発者から見て `boot` は `leiningen` よりはまだ新しく開発途中だ。
+しかし、`boot` コミュニティは着実に機能強化し続けていて、`leiningen` の機能をサポートし、追い越す勢いがある。
+
+[`boot` のタスク][4]を見ると、Bret Victor のシステムのアプローチに必要なものはすでに備えているのが分かるだろう。
+
+* [`boot-http`][5]: HTTP をベースにしたシンプルな HTTP を提供する `boot` タスク。
+* [`boot-reload`][6]: CSS や画像などの静的ファイルをライブリロードする `boot` タスク。
+* [`boot-cljs-repl`][7]: CLJS の REPL を提供する `boot` タスク。
 
 ## CLJ-based HTTP server
 
